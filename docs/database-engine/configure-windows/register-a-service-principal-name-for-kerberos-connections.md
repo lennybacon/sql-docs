@@ -32,7 +32,7 @@ manager: craigg
 You can verify that a connection is using Kerberos by querying the sys.dm_exec_connections dynamic management view. Run the following query and check the value of the auth_scheme column, which will be "KERBEROS" if Kerberos is enabled.  
   
 ```sql  
-SELECT auth_scheme FROM sys.dm_exec_connections WHERE session_id = @@spid ;  
+SELECT auth_scheme FROM sys.dm_exec_connections WHERE session_id = @@spid;  
 ```  
   
 > [!TIP]  
@@ -133,7 +133,7 @@ setspn -A MSSQLSvc/myhost.redmond.microsoft.com/instancename redmond\accountname
 ##  <a name="Client"></a> Client Connections  
  User-specified SPNs are supported in client drivers. However, if an SPN is not provided, it will be generated automatically based on the type of a client connection. For a TCP connection, an SPN in the format *MSSQLSvc*/*FQDN*:[*port*] is used for both the named and default instances.  
   
-For named pipes and shared memory connections, an SPN in the format *MSSQLSvc/\<FQDN>:\<instancename>* is used for a named instance and *MSSQLSvc/\<FQDN>* is used for the default instance.  
+For named pipes and shared memory connections, an SPN in the format *MSSQLSvc/\<FQDN>/\<instancename>* is used for a named instance and *MSSQLSvc/\<FQDN>* is used for the default instance.  
   
  **Using a service account as an SPN**  
   
